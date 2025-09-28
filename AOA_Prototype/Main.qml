@@ -14,4 +14,8 @@ ApplicationWindow {
     Component.onCompleted: {
         console.log("Font name" + idFontLoader.name)
     }
+
+    Theme{
+        id: idTheme
+    }
 }
