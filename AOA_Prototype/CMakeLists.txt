@@ -21,6 +21,7 @@ qt_add_qml_module(appAOA_Prototype
         Main.qml
         QML_FILES Theme.qml
         RESOURCES font/Free-Solid-900.otf
+        QML_FILES FirstPage.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
