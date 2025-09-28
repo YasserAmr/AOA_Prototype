@@ -34,7 +34,11 @@ Rectangle{
                 id: idFirstRow
                 spacing: idTheme.xSpace
                 CustomButton{
+                    id:idPowerButton
                     textIcon: "\uF015" // Todo: check icon value
+                    onClicked: {
+                        Qt.quit()
+                    }
                 }
 
                 CustomButton{
