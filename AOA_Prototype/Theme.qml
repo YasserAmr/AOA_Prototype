@@ -4,7 +4,7 @@ import QtQuick.Controls
 QtObject{
 
     property int minimalButtonWidth : 72
-    property int minimalButtonHeaght : 72
+    property int minimalButtonHeight : 72
 
     property string lableFontName: "Roboto Regular"
     property int lableFontSize: 12
