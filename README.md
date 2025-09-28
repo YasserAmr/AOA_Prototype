@@ -18,7 +18,7 @@ The main features include:
 - Uses FontAwesome icons for UI elements.
 
 ## AI Usage
-Some parts of the QML animation code were assisted by ChatGPT
+ChatGPT suggested some parts of the QML animation code
 
 ## Planned Changes and Time Estimation
 
@@ -51,8 +51,8 @@ Some parts of the QML animation code were assisted by ChatGPT
 - **Proposed:** Apply color animation.
 
  
-### 6. **Add Color Animations**
-- **Current:** Color animation not applied.
-- **Proposed:** Apply color animation.
+### 6. **Test Cases**
+- **Current:** there is no test Cases.
+- **Proposed:** Apply test Cases.
 
 **Total Estimated Time:** ~6–10 hours  
