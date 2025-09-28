@@ -68,12 +68,28 @@ Rectangle{
                         {
                             state = "light"
                             idMainRectangle.state = "light"
+                            idPowerButton.state= "light"
+                            idMale.state= "light"
+                            idfemale.state= "light"
+                            idBaby.state= "light"
+                            idYoung.state= "light"
+                            idAdult.state= "light"
+                            idOld.state= "light"
+                            idStartStop.state= "light"
                             console.log("state = light")
                         }
                         else
                         {
                             state = "dark"
                             idMainRectangle.state = "dark"
+                            idPowerButton.state= "dark"
+                            idMale.state= "dark"
+                            idfemale.state= "dark"
+                            idBaby.state= "dark"
+                            idYoung.state= "dark"
+                            idAdult.state= "dark"
+                            idOld.state= "dark"
+                            idStartStop.state= "dark"
                             console.log("state = dark")
                         }
                     }
@@ -92,7 +108,8 @@ Rectangle{
                     spacing: idTheme.xSpace
                     CustomButton{
                         id: idMale
-                        textIcon: "\uF222" // Todo: check icon value
+                        textIcon: "\uF222"
+                        state: "light"
                         onClicked: {
                             idYoung.textIcon = "\uF1AE"
                             idAdult.textIcon = "\uF183"
@@ -102,6 +119,7 @@ Rectangle{
                     CustomButton{
                         id: idfemale
                         textIcon: "\uF221"
+                        state: "light"
                         onClicked: {
                             idYoung.textIcon = "\uE59C"
                             idAdult.textIcon = "\uF182"
@@ -125,6 +143,7 @@ Rectangle{
                     CustomButton{
                         id:idBaby
                         textIcon: "\uF77C"
+                        state: "light"
                         onClicked: {
                             idCustomImage.imageIcon = "\uF77D"
                             idCustomImage.imageColor = idTheme.accentColor
@@ -133,6 +152,7 @@ Rectangle{
                     CustomButton{
                         id:idYoung
                         textIcon: "\uF1AE"
+                        state: "light"
                         onClicked: {
                             idCustomImage.imageIcon = "\uF1E3"
                             idCustomImage.imageColor = idTheme.accentColor
@@ -141,6 +161,7 @@ Rectangle{
                     CustomButton{
                         id:idAdult
                         textIcon: "\uF183"
+                        state: "light"
                         onClicked: {
                             idCustomImage.imageIcon = "\uF604"
                             idCustomImage.imageColor = idTheme.accentColor
@@ -149,6 +170,7 @@ Rectangle{
                     CustomButton{
                         id: idOld
                         textIcon: "\uE53C"
+                        state: "light"
                         onClicked: {
                             idCustomImage.imageIcon = "\uF06C" //Todo: check icone code
                             idCustomImage.imageColor = idTheme.accentColor
