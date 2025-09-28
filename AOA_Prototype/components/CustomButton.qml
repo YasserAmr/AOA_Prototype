@@ -5,9 +5,9 @@ Button{
     id: idButton
 
     property int buttonWidth: idTheme.minimalButtonWidth
-    property int buttonheight: idTheme.minimalButtonHeaght
+    property int buttonheight: idTheme.minimalButtonHeight
     property string textIcon: "\u25D0"
-    property int buttonIconSize: idTheme.minimalButtonHeaght
+    property int buttonIconSize: idTheme.minimalButtonHeight
 
 
     width: buttonWidth
