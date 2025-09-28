@@ -12,7 +12,7 @@ QtObject{
     property int buttonFontSize: 24
 
     property int xSpace: 10
-    property int ySpace: 10
+    property int ySpace: 20
 
     property int cornarRadius: 18
 
