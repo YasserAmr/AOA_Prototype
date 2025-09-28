@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-
+import "./components"
 ApplicationWindow {
     width: 1028
     height: 768
