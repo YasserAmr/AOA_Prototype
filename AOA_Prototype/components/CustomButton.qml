@@ -8,7 +8,7 @@ Button{
     property int buttonheight: idTheme.minimalButtonHeight
     property string textIcon: "\u25D0"
     property int buttonIconSize: idTheme.minimalButtonHeight
-     property color buttonIconcolor: idTheme.textColor
+    property color buttonIconcolor: idTheme.textColor
 
     width: buttonWidth
     height: buttonheight
