@@ -21,6 +21,14 @@ Rectangle{
             anchors.leftMargin: idTheme.ySpace
             spacing: idTheme.ySpace
 
+
+
+            CustomImage{
+                anchors.bottom: parent.bottom
+                anchors.top: idStartStop.bottom
+            }
+
+
             Row{
                 id: idFirstRow
                 spacing: idTheme.xSpace
@@ -91,6 +99,12 @@ Rectangle{
                 }
 
             }
+
+            CustomButton2{
+                id: idStartStop
+                textIcon: "Start handling "+ "\uF0DA" //toDo: Add Icon Size
+            }
+
 
         }
 
