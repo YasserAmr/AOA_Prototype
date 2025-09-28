@@ -27,7 +27,7 @@ Some parts of the QML animation code were assisted by ChatGPT
 - **Proposed:** 
   - Smooth transitions for button icons/text while switching states.  
   - Add `ParallelAnimation` to combine scale + opacity simultaneously for a more polished effect.  
-- **Time Estimate:** 2–3 hours
+- **Time Estimate:** 1-1.5 hours
 
 ### 2. **Add QML Text Animations**
 - **Current:** Button text changes instantly when state changes.
