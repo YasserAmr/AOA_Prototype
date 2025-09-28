@@ -42,7 +42,7 @@ Rectangle{
 
 
             CustomImage{
-                id: idCustomImage
+                id: idCustomImageLeft
                 anchors.bottom: parent.bottom
                 anchors.top: idStartStop.bottom
             }
@@ -76,6 +76,8 @@ Rectangle{
                             idAdult.state= "light"
                             idOld.state= "light"
                             idStartStop.state= "light"
+                            idFavouritPlanit.state= "light"
+                            idAgegroupe.state= "light"
                             console.log("state = light")
                         }
                         else
@@ -90,6 +92,8 @@ Rectangle{
                             idAdult.state= "dark"
                             idOld.state= "dark"
                             idStartStop.state= "dark"
+                            idFavouritPlanit.state= "dark"
+                            idAgegroupe.state= "dark"
                             console.log("state = dark")
                         }
                     }
@@ -102,7 +106,30 @@ Rectangle{
                 opacity: 1
                 visible: opacity
                 spacing: 5
-                Text { text: qsTr("Favourit Planit:") }
+                state: "light"
+                Text {
+                    id : idFavouritPlanit
+                    text: qsTr("Favourit Planit:")
+                    font.pixelSize: idTheme.lableFontSize
+                    color: idTheme.textColor
+                    states: [
+                        State {
+                            name: "dark"
+                            PropertyChanges {
+                                target: idFavouritPlanit
+                                color: idTheme.pageColor
+                            }
+                        },
+
+                        State {
+                            name: "light"
+                            PropertyChanges {
+                                target: idFavouritPlanit
+                                color: idTheme.textColor
+                            }
+                        }
+                    ]
+                }
                 Row{
                     id: idSecondRow
                     spacing: idTheme.xSpace
@@ -136,7 +163,29 @@ Rectangle{
                 opacity: 1
                 visible: opacity
                 spacing: 5
-                Text { text: qsTr("Age groupe:") }
+                Text {
+                    id: idAgegroupe
+                    text: qsTr("Age groupe:")
+                    font.pixelSize: idTheme.lableFontSize
+                    color: idTheme.textColor
+                    states: [
+                        State {
+                            name: "dark"
+                            PropertyChanges {
+                                target: idAgegroupe
+                                color: idTheme.pageColor
+                            }
+                        },
+
+                        State {
+                            name: "light"
+                            PropertyChanges {
+                                target: idAgegroupe
+                                color: idTheme.textColor
+                            }
+                        }
+                    ]
+                }
                 Row{
                     id: idRow3
                     spacing: idTheme.xSpace
@@ -145,8 +194,8 @@ Rectangle{
                         textIcon: "\uF77C"
                         state: "light"
                         onClicked: {
-                            idCustomImage.imageIcon = "\uF77D"
-                            idCustomImage.imageColor = idTheme.accentColor
+                            idCustomImageLeft.imageIcon = "\uF77D"
+                            idCustomImageLeft.imageColor = idTheme.accentColor
                         }
                     }
                     CustomButton{
@@ -154,8 +203,8 @@ Rectangle{
                         textIcon: "\uF1AE"
                         state: "light"
                         onClicked: {
-                            idCustomImage.imageIcon = "\uF1E3"
-                            idCustomImage.imageColor = idTheme.accentColor
+                            idCustomImageLeft.imageIcon = "\uF1E3"
+                            idCustomImageLeft.imageColor = idTheme.accentColor
                         }
                     }
                     CustomButton{
@@ -163,8 +212,8 @@ Rectangle{
                         textIcon: "\uF183"
                         state: "light"
                         onClicked: {
-                            idCustomImage.imageIcon = "\uF604"
-                            idCustomImage.imageColor = idTheme.accentColor
+                            idCustomImageLeft.imageIcon = "\uF604"
+                            idCustomImageLeft.imageColor = idTheme.accentColor
                         }
                     }
                     CustomButton{
@@ -172,8 +221,8 @@ Rectangle{
                         textIcon: "\uE53C"
                         state: "light"
                         onClicked: {
-                            idCustomImage.imageIcon = "\uF06C" //Todo: check icone code
-                            idCustomImage.imageColor = idTheme.accentColor
+                            idCustomImageLeft.imageIcon = "\uF06C" //Todo: check icone code
+                            idCustomImageLeft.imageColor = idTheme.accentColor
                         }
                     }
 
@@ -186,60 +235,72 @@ Rectangle{
                 textIcon: "Start handling "+ "\uF0DA" //toDo: Add Icon Size
                 state: "stop"
 
-                onClicked: {
-                    if(state ==="stop" )
-                    {
-                        state ="start"
-                        console.log("state = start ")
-                    }
-                    else
-                    {
-                        state ="stop"
-                        console.log("state = stop ")
-                    }
-                }
+                // onClicked: {
+                //     if(state ==="stop" )
+                //     {
+                //         state ="start"
+                //         console.log("state = start ")
+                //     }
+                //     else
+                //     {
+                //         state ="stop"
+                //         console.log("state = stop ")
+                //     }
+                // }
 
                 states: [
                     State {
                         name: "start"
-                        PropertyChanges {target: idFirstSupColumn; opacity: 0 }
-                        PropertyChanges {target: idSupColumn2;opacity: 0 }
-
-                        PropertyChanges {target: idCustomImage; scale: 1 }
+                        PropertyChanges { target: idSupColumn2;  opacity: 0 }
+                        PropertyChanges { target: idFirstSupColumn; opacity: 0 }
+                        PropertyChanges { target: idStartStop; y: 95 }
+                        // PropertyChanges { target: idStartStop; textIcon: "stop " + "\uF256" }
+                        //AnchorChanges { target: idStartStop; anchors.top: idFirstRow.bottom
+                        PropertyChanges { target: idCustomImageLeft; scale: 1 }
+                        //PropertyChanges { target: idCustomImageLeft; x: 100 }
 
                     },
                     State {
                         name: "stop"
-                        PropertyChanges {target: idFirstSupColumn; opacity: 1 }
-                        PropertyChanges {target: idSupColumn2;opacity: 1 }
-                        PropertyChanges {target: idCustomImage; scale: 1 }
-
+                        PropertyChanges { target: idSupColumn2;  opacity: 1 }
+                        PropertyChanges { target: idFirstSupColumn; opacity: 1 }
+                        PropertyChanges { target: idStartStop; y: 320 }
+                        PropertyChanges { target: idStartStop; textIcon: "Start Healing " + "\uF0DA" }
+                        //AnchorChanges { target: idStartStop; anchors.top: idSupColumn2.bottom }
+                        PropertyChanges { target: idCustomImageLeft; scale: 1 }
                     }
-
                 ]
 
                 transitions: [
                     Transition {
-                        from: "stop"
-                        to: "start"
+                        from: "start"; to: "stop"
+                        // NumberAnimation { properties: "opacity", textIcon; duration: 2000; easing.type: Easing.InOutQuad }
+                        NumberAnimation { properties: "y"; duration: 2000; easing.type: Easing.InOutQuad }
+                        // AnchorAnimation{easing.type: Easing.InOutQuad}
+                        NumberAnimation { target: idStartStop; property: "opacity"; from: 1; to: 0; duration: 300 }
+                        NumberAnimation { target: idStartStop; property: "opacity"; from: 0; to: 1; duration: 300 }
+                    },
+
+                    Transition {
+                        from: "stop"; to: "start"
                         SequentialAnimation{
+                            //running: idStartStop.state === "start"
                             loops: Animation.Infinite
-                            NumberAnimation { target: idCustomImage; property: "scale"; from:1; to: 1.5; duration: 1000 }
+                            NumberAnimation { properties: "scale"; from: 1; to: 1.5; duration: 2000}
                             PauseAnimation {
                                 duration: 500
                             }
-                            NumberAnimation { target: idCustomImage; property: "scale"; from: 1.5; to:1 ; duration: 1000 }
+                            NumberAnimation { properties: "scale"; from: 1.5; to: 1; duration: 2000}
                             PauseAnimation {
                                 duration: 2000
                             }
                         }
-                        NumberAnimation{properties: "opacity"; duration: 2000; easing.type: Easing.InOutQuad}
-                    },
-                    Transition {
-                        from: "start"
-                        to: "stop"
-                        NumberAnimation{properties: "opacity"; duration: 2000; easing.type: Easing.InOutQuad}
 
+                        NumberAnimation { properties: "opacity", textIcon; duration: 2000; easing.type: Easing.InOutQuad }
+                        NumberAnimation { properties: "y"; duration: 2000; easing.type: Easing.InOutQuad }
+                        // AnchorAnimation{easing.type: Easing.InOutQuad}
+                        NumberAnimation { target: idStartStop; property: "opacity"; from: 0; to: 1; duration: 300 }
+                        NumberAnimation { target: idStartStop; property: "opacity"; from: 0; to: 1; duration: 300 }
                     }
                 ]
             }
