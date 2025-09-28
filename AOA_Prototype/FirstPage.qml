@@ -6,6 +6,24 @@ Rectangle{
     id: idMainRectangle
     anchors.fill: parent
     color: idTheme.pageColor
+    state: "light"
+    states: [
+        State {
+            name: "dark"
+            PropertyChanges {
+                target: idMainRectangle
+                color: idTheme.textColor
+            }
+        },
+
+        State {
+            name: "light"
+            PropertyChanges {
+                target: idMainRectangle
+                color: idTheme.pageColor
+            }
+        }
+    ]
 
     Rectangle{
         id:idLeftRectangle
@@ -42,7 +60,23 @@ Rectangle{
                 }
 
                 CustomButton{
-                    textIcon: "\u25D0" // Todo: check icon value
+                    id:idPThemeButton
+                    textIcon: "\u25D0"
+                    state: "light"
+                    onClicked: {
+                        if (state === "dark")
+                        {
+                            state = "light"
+                            idMainRectangle.state = "light"
+                            console.log("state = light")
+                        }
+                        else
+                        {
+                            state = "dark"
+                            idMainRectangle.state = "dark"
+                            console.log("state = dark")
+                        }
+                    }
                 }
 
             }
