@@ -8,7 +8,7 @@ Button{
     property int buttonheight: idTheme.minimalButtonHeight
     property string textIcon: "\u25D0"
     property int buttonIconSize: idTheme.minimalButtonHeight
-
+     property color buttonIconcolor: idTheme.textColor
 
     width: buttonWidth
     height: buttonheight
@@ -22,15 +22,16 @@ Button{
             radius: idTheme.cornarRadius
             blur: 0
             spread: 0
+            color: buttonIconcolor
         }
 
         Rectangle {
             id:idRectangleButton
             anchors.fill: parent
             anchors.centerIn: parent
-            border.color: idTheme. textColor
+            border.color: buttonIconcolor
             radius: idTheme.cornarRadius
-
+            color: idTheme.pageColor
         }
     }
 
@@ -41,8 +42,37 @@ Button{
         text: textIcon
         font.family: idTheme.lableFontName
         font.pixelSize: buttonIconSize - 20
-        color: idTheme. textColor
+        color: buttonIconcolor
+
     }
+
+    states: [
+        State {
+            name: "dark"
+            PropertyChanges {
+                target: idRectangleButton
+                color: idTheme.textColor
+            }
+
+            PropertyChanges {
+                target: idButton
+                buttonIconcolor: idTheme.pageColor
+            }
+        },
+
+        State {
+            name: "light"
+            PropertyChanges {
+                target: idRectangleButton
+                color: idTheme.pageColor
+            }
+
+            PropertyChanges {
+                target: idButtonText
+                color: idTheme.textColor
+            }
+        }
+    ]
 
 
 
