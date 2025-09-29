@@ -8,7 +8,7 @@ Item {
     implicitHeight: idAlableText.implicitHeight
     Text {
         id: idAlableText
-        text: lableText
+        text: text
         font.family: idTheme.lableFontName
         font.pixelSize: idTheme.lableFontSize
         state: themeState
