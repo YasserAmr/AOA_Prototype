@@ -76,8 +76,8 @@ Rectangle{
                             idAdult.state= "light"
                             idOld.state= "light"
                             idStartStop.state= "light"
-                            idFavouritPlanit.state= "light"
-                            idAgegroupe.state= "light"
+                            idFavouritPlanit.themeState= "light"
+                            idAgegroupe.themeState= "light"
                             console.log("state = light")
                         }
                         else
@@ -92,8 +92,8 @@ Rectangle{
                             idAdult.state= "dark"
                             idOld.state= "dark"
                             idStartStop.state= "dark"
-                            idFavouritPlanit.state= "dark"
-                            idAgegroupe.state= "dark"
+                            idFavouritPlanit.themeState= "dark"
+                            idAgegroupe.themeState= "dark"
                             console.log("state = dark")
                         }
                     }
@@ -105,31 +105,14 @@ Rectangle{
                 id: idFirstSupColumn
                 opacity: 1
                 visible: opacity
-                spacing: 5
                 state: "light"
-                Text {
+                spacing: 5
+                CustomLable{
                     id : idFavouritPlanit
-                    text: qsTr("Favourit Planit:")
-                    font.pixelSize: idTheme.lableFontSize
-                    color: idTheme.textColor
-                    states: [
-                        State {
-                            name: "dark"
-                            PropertyChanges {
-                                target: idFavouritPlanit
-                                color: idTheme.pageColor
-                            }
-                        },
-
-                        State {
-                            name: "light"
-                            PropertyChanges {
-                                target: idFavouritPlanit
-                                color: idTheme.textColor
-                            }
-                        }
-                    ]
+                    text: qsTr("Favourite Planet:")
+                    themeState: "light"
                 }
+
                 Row{
                     id: idSecondRow
                     spacing: idTheme.xSpace
@@ -163,29 +146,34 @@ Rectangle{
                 opacity: 1
                 visible: opacity
                 spacing: 5
-                Text {
-                    id: idAgegroupe
+                CustomLable{
+                    id : idAgegroupe
                     text: qsTr("Age groupe:")
-                    font.pixelSize: idTheme.lableFontSize
-                    color: idTheme.textColor
-                    states: [
-                        State {
-                            name: "dark"
-                            PropertyChanges {
-                                target: idAgegroupe
-                                color: idTheme.pageColor
-                            }
-                        },
-
-                        State {
-                            name: "light"
-                            PropertyChanges {
-                                target: idAgegroupe
-                                color: idTheme.textColor
-                            }
-                        }
-                    ]
+                    themeState: "light"
                 }
+                // Text {
+                //     id: idAgegroupe
+                //     text: qsTr("Age groupe:")
+                //     font.pixelSize: idTheme.lableFontSize
+                //     color: idTheme.textColor
+                //     states: [
+                //         State {
+                //             name: "dark"
+                //             PropertyChanges {
+                //                 target: idAgegroupe
+                //                 color: idTheme.pageColor
+                //             }
+                //         },
+
+                //         State {
+                //             name: "light"
+                //             PropertyChanges {
+                //                 target: idAgegroupe
+                //                 color: idTheme.textColor
+                //             }
+                //         }
+                //     ]
+                // }
                 Row{
                     id: idRow3
                     spacing: idTheme.xSpace
