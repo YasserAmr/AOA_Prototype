@@ -50,9 +50,10 @@ ChatGPT suggested some parts of the QML animation code
 - **Current:** Color animation not applied.
 - **Proposed:** Apply color animation.
 
+### 6. **Label should be a separate component in a separate file**
+- **Current:** It's implemented in the FirstPage.qml file.
+- **Proposed:** Create CustomLable.qml file.
  
-### 6. **Test Cases**
-- **Current:** there is no test Cases.
-- **Proposed:** Apply test Cases.
+v1.1 – Added QML Animations
 
 **Total Estimated Time:** ~6–10 hours  
