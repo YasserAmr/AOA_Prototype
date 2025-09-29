@@ -26,6 +26,7 @@ qt_add_qml_module(appAOA_Prototype
         QML_FILES components/CustomButton2.qml
         QML_FILES components/CustomImage.qml
         QML_FILES components/CustomLable.qml
+        QML_FILES components/CustomLableButtonsGroup.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
