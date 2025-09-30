@@ -135,6 +135,45 @@ Rectangle{
                 // anchors.bottom: idStartStop.top
                 buttonText: "Start handling "+ "\uF0DA" //toDo: Add Icon Size
                 state: "stop"
+                onClicked: {
+                    if(state ==="stop" )
+                    {
+                        state ="start"; console.log("state = start ")
+                    }
+                    else
+                    {
+                        state ="stop"; console.log("state = stop ")
+                    }
+                }
+
+                states: [
+                    State {
+                        name: "start"
+                        PropertyChanges {target: idAgeGroupe;  opacity: 0 }
+                        PropertyChanges {target: idFavouritePlanet;  opacity: 0 }
+                        AnchorChanges {target: idStartStop; anchors.top: idPowerThemeRow.bottom }
+                    },
+                    State {
+                        name: "stop"
+                        PropertyChanges {target: idAgeGroupe;  opacity: 1 }
+                        PropertyChanges {target: idFavouritePlanet;  opacity: 1 }
+                        AnchorChanges {target: idStartStop; anchors.top:idAgeGroupe.bottom}
+                    }
+                ]
+
+                transitions: [
+                    Transition {
+                        from: "stop"; to: "start"
+                        NumberAnimation { properties: "opacity"; duration: 2000; easing.type: Easing.InOutQuad }
+                        AnchorAnimation{ duration: 2000; easing.type: Easing.InOutQuad}
+                    },
+                    Transition {
+                        from: "start"; to: "stop"
+                        NumberAnimation { properties: "opacity"; duration: 2000; easing.type: Easing.InOutQuad }
+                        AnchorAnimation{ duration: 2000; easing.type: Easing.InOutQuad}
+
+                    }
+                ]
             }
 
             // CustomButton2{
