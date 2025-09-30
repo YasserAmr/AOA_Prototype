@@ -6,7 +6,7 @@ Button{
 
     property int buttonWidth: idButtonText.implicitWidth + (idTheme.ySpace * 2)
     property int buttonheight: idButtonText.implicitHeight + (idTheme.ySpace *2)
-    property string textIcon: "\u25D0"
+    property string buttonText: ""
     property int buttonIconSize: idTheme.buttonFontSize
     property color buttonIconcolor: idTheme.textColor
 
@@ -39,8 +39,8 @@ Button{
         id: idButtonText
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        text: textIcon
-        font.family: idTheme.lableFontName
+        text: buttonText
+        font.family: idTheme.buttonFontName
         font.pixelSize: buttonIconSize
         color: buttonIconcolor
     }
