@@ -5,12 +5,11 @@ import QtQuick.Layouts
 Item {
     id:idRoot
     property var buttonModel: []
-    property alias text: idCustomLable.text
-    // property int buttonWidth: Math.max(idTheme.minimalButtonWidth, idlayout.implicitWidth)
-    // property int buttonheight: Math.max( idTheme.minimalButtonHeight, idlayout.implicitHeight)
+    property alias lableText: idCustomLable.text
     property string textIcon: "\u25D0"
-    property int buttonIconSize: idTheme.minimalButtonHeight
+    property int buttonIconSize: idTheme.buttonFontSize
     property color buttonIconcolor: idTheme.textColor
+    property int groupeOpicity: 1
     property string groupeState: "light"
     property bool male: true
 
@@ -24,7 +23,8 @@ Item {
         CustomLable{
             id : idCustomLable
             Layout.fillWidth: true
-            text: text
+            text: lableText
+            opacity: groupeOpicity
             themeState: groupeState
         }
 
@@ -35,8 +35,11 @@ Item {
             Repeater {
                 model: idRoot.buttonModel
                 delegate: CustomButton {
-                    textIcon: model.icon
+                    buttonIcon: model.icon
+                    opacity: groupeOpicity
                     state: groupeState
+                    buttonText:  model.text ? model.text : ""
+                    buttonIconSize : model.buttonIconSize ? model.buttonIconSize : idTheme.buttonFontSize
                     onClicked: {
                         // Change another model if targetModel is defined
                         if (model.targetModel) {
