@@ -128,7 +128,14 @@ Rectangle{
             // }
             // that approch work but needs more inhancement
             //##################################################################################################################
-
+            CustomButton2{
+                id: idStartStop
+                anchors.top: idAgeGroupe.bottom
+                anchors.topMargin: 20
+                // anchors.bottom: idStartStop.top
+                buttonText: "Start handling "+ "\uF0DA" //toDo: Add Icon Size
+                state: "stop"
+            }
 
             // CustomButton2{
             //     id: idStartStop
