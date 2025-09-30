@@ -4,12 +4,13 @@ import QtQuick.Effects
 Button{
     id: idButton
 
-    property int buttonWidth: Math.max(idButtonText.implicitWidth , idTheme.minimalButtonWidth)
-    property int buttonheight: Math.max(idButtonText.implicitHeight, idTheme.minimalButtonHeight)
+    property int buttonWidth: Math.max(idButtonText.implicitWidth + idTheme.ySpace , idTheme.minimalButtonWidth)
+    property int buttonheight: Math.max(idButtonText.implicitHeight + idTheme.ySpace, idTheme.minimalButtonHeight)
     // property int buttonWidth: idTheme.minimalButtonWidth+ (idTheme.ySpace * 2
     // property int buttonheight: idTheme.minimalButtonHeight+ (idTheme.ySpace *2)
-    property string textIcon: "\u25D0"
-    property int buttonIconSize: idTheme.minimalButtonHeight
+    property string buttonIcon: "\u25D0"
+    property string buttonText: ""
+    property int buttonIconSize: idTheme.buttonFontSize
     property color buttonIconcolor: idTheme.textColor
 
     width: buttonWidth
@@ -41,9 +42,10 @@ Button{
         id: idButtonText
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        text: textIcon
-        font.family: idTheme.lableFontName
-        font.pixelSize: buttonIconSize - 20
+        text: buttonIcon + buttonText
+        font.family: idTheme.buttonFontName
+        font.pixelSize: buttonIconSize
+        //font.bold: true
         color: buttonIconcolor
 
     }
