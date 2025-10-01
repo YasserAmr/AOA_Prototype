@@ -33,240 +33,91 @@ Rectangle{
         width: parent.width/2
         color: Qt.rgba(0,0,0,0)
         //##################################################################################################################
-        // Column{
-        //     id: idMainColumn
-        //     anchors.fill: parent
-        //     anchors.leftMargin: idTheme.ySpace
-        //     spacing: idTheme.ySpace
-
-            CustomImage{
-                id: idCustomImageLeft
-                anchors.bottom: parent.bottom
-                anchors.top: idAgeGroupe.bottom
-            }
-            //##################################################################################################################
-            CustomLableButtonsGroup{
-                id: idPowerThemeRow
-                anchors.top: parent.top
-                // anchors.bottom: idFavouritePlanet.top
-                groupeState: "light"
-                buttonModel: ListModel {
-                    ListElement { icon: "\uF015"; buttonIconSize: 40; onClick: function() { Qt.quit() } }
-                    ListElement { icon: "\u25D0"; buttonIconSize: 40; onClick: function() {
-                        if (state === "dark")
-                        {
-                            state = "light"
-                            idMainRectangle.state = "light"
-                            idFavouritePlanet.groupeState = "light"
-                            idAgeGroupe.groupeState = "light"
-                            idPowerThemeRow.groupeState = "light"
-                            console.log("state = light")
-                        }
-                        else
-                        {
-                            state = "dark"
-                            idMainRectangle.state = "dark"
-                            idFavouritePlanet.groupeState= "dark"
-                            idAgeGroupe.groupeState= "dark"
-                            idPowerThemeRow.groupeState = "dark"
-                            console.log("state = dark")
-                        }}
-                    }
-                }
-            }
-            //##################################################################################################################
-            CustomLableButtonsGroup{
-                id: idFavouritePlanet
-                anchors.top: idPowerThemeRow.bottom
-                anchors.topMargin: 20
-                // anchors.bottom: idAgeGroupe.top
-                lableText: qsTr("Favourite Planet:")
-                groupeState: "light"
-                groupeOpicity: 1
-                visible: groupeOpicity
-                buttonModel: ListModel {
-                    ListElement { icon: "\uF222"; buttonIconSize: 40; onClick: function() { idAgeGroupe.buttonModel = model1 } }
-                    ListElement { icon: "\uF221"; buttonIconSize: 40; onClick: function() { idAgeGroupe.buttonModel = model2 } }
-                }
-            }
-            //##################################################################################################################
-            // Age group models
-            ListModel
-            {
-                id: model1
-                ListElement { icon: "\uF77C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF77D" }}
-                ListElement { icon: "\uF1AE"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF1E3" }}
-                ListElement { icon: "\uF183"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF604" }}
-                ListElement { icon: "\uE53C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF06C" }}
-            }
-            ListModel
-            {
-                id: model2
-                ListElement { icon: "\uF77C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF77D" }}
-                ListElement { icon: "\uE59C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF1AE" }}
-                ListElement { icon: "\uF182"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF604" }}
-                ListElement { icon: "\uE53C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF06C" }}
-            }
-            //##################################################################################################################
-            CustomLableButtonsGroup{
-                id: idAgeGroupe
-                anchors.top: idFavouritePlanet.bottom
-                anchors.topMargin: 20
-                // anchors.bottom: idStartStop.top
-                groupeOpicity: 1
-                visible: groupeOpicity
-                lableText: "Age groupe:"
-                groupeState: "light"
-                buttonModel: model1
-            }
-            //##################################################################################################################
-            // CustomLableButtonsGroup{
-            //     id: idAStartStop
-            //     groupeState: "light"
-            //     buttonModel: ListModel {
-            //         ListElement { icon: "Start handling "; text: "\uF0DA"}}
-            // }
-            // that approch work but needs more inhancement
-            //##################################################################################################################
-            CustomButton2{
-                id: idStartStop
-                anchors.top: idAgeGroupe.bottom
-                anchors.topMargin: 20
-                // anchors.bottom: idStartStop.top
-                buttonText: "Start handling "+ "\uF0DA" //toDo: Add Icon Size
-                state: "stop"
-                onClicked: {
-                    if(state ==="stop" )
+        // CustomImage{
+        //     id: idCustomImageLeft
+        //     // anchors.bottom: parent.bottom
+        //      // anchors.top: idStartStop.bottom
+        //     x:-50
+        //     // y: idLeftRectangle.height - 50
+        // }
+        //##################################################################################################################
+        CustomLableButtonsGroup{
+            id: idPowerThemeRow
+            anchors.top: parent.top
+            // anchors.bottom: idFavouritePlanet.top
+            groupeState: "light"
+            buttonModel: ListModel {
+                ListElement { icon: "\uF015"; buttonIconSize: 40; onClick: function() { Qt.quit() } }
+                ListElement { icon: "\u25D0"; buttonIconSize: 40; onClick: function() {
+                    if (state === "dark")
                     {
-                        state ="start"; console.log("state = start ")
+                        state = "light"
+                        idMainRectangle.state = "light"
+                        idFavouritePlanet.groupeState = "light"
+                        idAgeGroupe.groupeState = "light"
+                        idPowerThemeRow.groupeState = "light"
+                        // idStartStop.state = "light"
+                        console.log("state = light")
                     }
                     else
                     {
-                        state ="stop"; console.log("state = stop ")
-                    }
+                        state = "dark"
+                        idMainRectangle.state = "dark"
+                        idFavouritePlanet.groupeState= "dark"
+                        idAgeGroupe.groupeState= "dark"
+                        idPowerThemeRow.groupeState = "dark"
+                        // idStartStop.state = "dark"
+                        console.log("state = dark")
+                    }}
                 }
-
-                states: [
-                    State {
-                        name: "start"
-                        PropertyChanges {target: idAgeGroupe;  opacity: 0 }
-                        PropertyChanges {target: idFavouritePlanet;  opacity: 0 }
-                        AnchorChanges {target: idStartStop; anchors.top: idPowerThemeRow.bottom }
-                    },
-                    State {
-                        name: "stop"
-                        PropertyChanges {target: idAgeGroupe;  opacity: 1 }
-                        PropertyChanges {target: idFavouritePlanet;  opacity: 1 }
-                        AnchorChanges {target: idStartStop; anchors.top:idAgeGroupe.bottom}
-                    }
-                ]
-
-                transitions: [
-                    Transition {
-                        from: "stop"; to: "start"
-                        NumberAnimation { properties: "opacity"; duration: 2000; easing.type: Easing.InOutQuad }
-                        AnchorAnimation{ duration: 2000; easing.type: Easing.InOutQuad}
-                    },
-                    Transition {
-                        from: "start"; to: "stop"
-                        NumberAnimation { properties: "opacity"; duration: 2000; easing.type: Easing.InOutQuad }
-                        AnchorAnimation{ duration: 2000; easing.type: Easing.InOutQuad}
-
-                    }
-                ]
             }
-
-            // CustomButton2{
-            //     id: idStartStop
-            //     textIcon: "Start handling "+ "\uF0DA" //toDo: Add Icon Size
-            //     state: "stop"
-
-            //     // onClicked: {
-            //     //     if(state ==="stop" )
-            //     //     {
-            //     //         state ="start"
-            //     //         console.log("state = start ")
-            //     //     }
-            //     //     else
-            //     //     {
-            //     //         state ="stop"
-            //     //         console.log("state = stop ")
-            //     //     }
-            //     // }
-
-            //     states: [
-            //         State {
-            //             name: "start"
-            //             PropertyChanges { target: idSupColumn2;  opacity: 0 }
-            //             PropertyChanges { target: idFirstSupColumn; opacity: 0 }
-            //             PropertyChanges { target: idStartStop; y: 95 }
-            //             // PropertyChanges { target: idStartStop; textIcon: "stop " + "\uF256" }
-            //             //AnchorChanges { target: idStartStop; anchors.top: idFirstRow.bottom
-            //             PropertyChanges { target: idCustomImageLeft; scale: 1 }
-            //             //PropertyChanges { target: idCustomImageLeft; x: 100 }
-
-            //         },
-            //         State {
-            //             name: "stop"
-            //             PropertyChanges { target: idSupColumn2;  opacity: 1 }
-            //             PropertyChanges { target: idFirstSupColumn; opacity: 1 }
-            //             PropertyChanges { target: idStartStop; y: 320 }
-            //             PropertyChanges { target: idStartStop; textIcon: "Start Healing " + "\uF0DA" }
-            //             //AnchorChanges { target: idStartStop; anchors.top: idSupColumn2.bottom }
-            //             PropertyChanges { target: idCustomImageLeft; scale: 1 }
-            //         }
-            //     ]
-
-            //     transitions: [
-            //         Transition {
-            //             from: "start"; to: "stop"
-            //             // NumberAnimation { properties: "opacity", textIcon; duration: 2000; easing.type: Easing.InOutQuad }
-            //             NumberAnimation { properties: "y"; duration: 2000; easing.type: Easing.InOutQuad }
-            //             // AnchorAnimation{easing.type: Easing.InOutQuad}
-            //             NumberAnimation { target: idStartStop; property: "opacity"; from: 1; to: 0; duration: 300 }
-            //             NumberAnimation { target: idStartStop; property: "opacity"; from: 0; to: 1; duration: 300 }
-            //         },
-
-            //         Transition {
-            //             from: "stop"; to: "start"
-            //             SequentialAnimation{
-            //                 //running: idStartStop.state === "start"
-            //                 loops: Animation.Infinite
-            //                 NumberAnimation { properties: "scale"; from: 1; to: 1.5; duration: 2000}
-            //                 PauseAnimation {
-            //                     duration: 500
-            //                 }
-            //                 NumberAnimation { properties: "scale"; from: 1.5; to: 1; duration: 2000}
-            //                 PauseAnimation {
-            //                     duration: 2000
-            //                 }
-            //             }
-
-            //             NumberAnimation { properties: "opacity", textIcon; duration: 2000; easing.type: Easing.InOutQuad }
-            //             NumberAnimation { properties: "y"; duration: 2000; easing.type: Easing.InOutQuad }
-            //             // AnchorAnimation{easing.type: Easing.InOutQuad}
-            //             NumberAnimation { target: idStartStop; property: "opacity"; from: 0; to: 1; duration: 300 }
-            //             NumberAnimation { target: idStartStop; property: "opacity"; from: 0; to: 1; duration: 300 }
-            //         }
-            //     ]
-            // }
-
-    }
-
-    Rectangle{
-        id:idRightRectangle
-        anchors.right: parent.right
-        height: parent.height
-        width: parent.width/2
-        color: Qt.rgba(0,0,0,0)
-
-        CustomImage{
-            id: idCustomImageRight
-            anchors.right: idRightRectangle.right
-            anchors.top: idRightRectangle.top
-            anchors.margins: 100
-            imageSize: 100
         }
-    }
+        //##################################################################################################################
+        CustomLableButtonsGroup{
+            id: idFavouritePlanet
+            anchors.top: idPowerThemeRow.bottom
+            anchors.topMargin: 20
+            // anchors.bottom: idAgeGroupe.top
+            lableText: qsTr("Favourite Planet:")
+            groupeState: "light"
+            groupeOpicity: 1
+            visible: groupeOpicity
+            buttonModel: ListModel {
+                ListElement { icon: "\uF222"; buttonIconSize: 40; onClick: function() { idAgeGroupe.buttonModel = model1 } }
+                ListElement { icon: "\uF221"; buttonIconSize: 40; onClick: function() { idAgeGroupe.buttonModel = model2 } }
+            }
+        }
+        //##################################################################################################################
+        // Age group models
+        ListModel
+        {
+            id: model1
+            ListElement { icon: "\uF77C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF77D" }}
+            ListElement { icon: "\uF1AE"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF1E3" }}
+            ListElement { icon: "\uF183"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF604" }}
+            ListElement { icon: "\uE53C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF06C" }}
+        }
+        ListModel
+        {
+            id: model2
+            ListElement { icon: "\uF77C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF77D" }}
+            ListElement { icon: "\uE59C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF1AE" }}
+            ListElement { icon: "\uF182"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF604" }}
+            ListElement { icon: "\uE53C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF06C" }}
+        }
+        //##################################################################################################################
+        CustomLableButtonsGroup{
+            id: idAgeGroupe
+            anchors.top: idFavouritePlanet.bottom
+            anchors.topMargin: 20
+            // anchors.bottom: idStartStop.top
+            groupeOpicity: 1
+            visible: groupeOpicity
+            lableText: "Age groupe:"
+            groupeState: "light"
+            buttonModel: model1
+        }
+        //##################################################################################################################
+}
 
 }
