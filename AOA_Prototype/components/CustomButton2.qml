@@ -9,7 +9,7 @@ Button{
     property string buttonText: ""
     property int buttonIconSize: idTheme.buttonFontSize
     property color buttonIconcolor: idTheme.textColor
-
+    property int textOpacity : 1
     width: buttonWidth
     height: buttonheight
 
@@ -40,6 +40,7 @@ Button{
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         text: buttonText
+        opacity: textOpacity
         font.family: idTheme.buttonFontName
         font.pixelSize: buttonIconSize
         color: buttonIconcolor
