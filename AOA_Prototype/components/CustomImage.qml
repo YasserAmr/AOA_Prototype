@@ -5,17 +5,20 @@ Rectangle {
     property string imageIcon: "\uF77D"
     property int  xPosition: -50
     property int  yPosition: 20
-    property int  imageSize: 550
+    property int  imageSize: 500
     property color  imageColor: idTheme.accentColor
+    transformOrigin: Item.Center
+    width: imageSize
+    height: imageSize
+    color: Qt.rgba(0,0,0,0)
 
-    x:xPosition
-    y:yPosition
+    // x:xPosition
+    // y:yPosition
     Text {
-        anchors.fill: parent
+        anchors.centerIn: parent
         text: imageIcon
         font.family: idTheme.buttonFontName
         font.pixelSize: imageSize
         color: imageColor
     }
-
 }
