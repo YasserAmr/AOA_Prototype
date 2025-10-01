@@ -33,6 +33,12 @@ Rectangle{
         width: parent.width/2
         color: Qt.rgba(0,0,0,0)
         //##################################################################################################################
+        // Column{
+        //     id: idMainColumn
+        //     anchors.fill: parent
+        //     anchors.leftMargin: idTheme.ySpace
+        //     spacing: idTheme.ySpace
+
         // CustomImage{
         //     id: idCustomImageLeft
         //     // anchors.bottom: parent.bottom
@@ -118,6 +124,128 @@ Rectangle{
             buttonModel: model1
         }
         //##################################################################################################################
-}
+        // CustomLableButtonsGroup{
+        //     id: idAStartStop
+        //     groupeState: "light"
+        //     buttonModel: ListModel {
+        //         ListElement { icon: "Start handling "; text: "\uF0DA"}}
+        // }
+        // that approch work but needs more inhancement
+        //##################################################################################################################
+        CustomButton2{
+            id: idStartStop
+            anchors.top: idAgeGroupe.bottom
+            anchors.topMargin: 20
+            textOpacity: 1
+            Behavior on textOpacity {
+                NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
+            }
+            // Text properties
+            property string startText: "Start healing " + "\uF0DA"
+            property string stopText: "Stop " + "\uF256"
+            buttonText: startText
+            state: "stop"
+            onClicked: {
+                if(state ==="stop" )
+                {
+                    state ="start"; idCustomImageLeft.state = "start" ;console.log("state = start ")
+                }
+                else
+                {
+                    state ="stop"; idCustomImageLeft.state = "stop" ;console.log("state = stop ")
+                }
+            }
+
+            states: [
+                State {
+                    name: "start"
+                    PropertyChanges {target: idAgeGroupe;  opacity: 0 }
+                    PropertyChanges {target: idFavouritePlanet;  opacity: 0 }
+                    PropertyChanges {target: idStartStop;  buttonText: "Stop "+ "\uF256"  }
+                    AnchorChanges {target: idStartStop; anchors.top: idPowerThemeRow.bottom }
+                },
+                State {
+                    name: "stop"
+                    PropertyChanges {target: idAgeGroupe;  opacity: 1 }
+                    PropertyChanges {target: idFavouritePlanet;  opacity: 1 }
+                    PropertyChanges {target: idStartStop;  buttonText: "Start handling "+ "\uF0DA"  }
+                    AnchorChanges {target: idStartStop; anchors.top:idAgeGroupe.bottom}
+
+                }
+            ]
+
+            transitions: [
+                Transition {
+                    from: "stop"; to: "start"
+                    NumberAnimation { properties: "opacity" ; duration: 2000; easing.type: Easing.InOutQuad }
+                    AnchorAnimation{ duration: 2000; easing.type: Easing.InOutQuad}
+                },
+                Transition {
+                    from: "start"; to: "stop"
+                    NumberAnimation { properties: "opacity"; duration: 2000; easing.type: Easing.InOutQuad }
+                    AnchorAnimation{ duration: 2000; easing.type: Easing.InOutQuad}
+                }
+            ]
+        }
+        CustomImage{
+            id: idCustomImageLeft
+            y:parent.height - 2.2*height/3
+            x:-50
+            z:-1
+            state: "stop"
+            states: [
+                State {
+                    name: "start"
+                    PropertyChanges { target: idCustomImageLeft; scale: 1 }
+                },
+                State {
+                    name: "stop"
+                    PropertyChanges { target: idCustomImageLeft; scale: 1 }
+
+                }
+            ]
+            transitions: [
+                Transition {
+                    from: "stop"; to: "start"
+                    // NumberAnimation { properties: "opacity" ; duration: 2000; easing.type: Easing.InOutQuad }
+                    AnchorAnimation{ duration: 2000; easing.type: Easing.InOutQuad}
+                    SequentialAnimation{
+                        loops: Animation.Infinite
+                        PauseAnimation {
+                            duration: 2000
+                        }
+                        NumberAnimation { properties: "scale"; from: 1; to: 0.8; duration: 2000}
+                        PauseAnimation {
+                            duration: 1000
+                        }
+                        NumberAnimation { properties: "scale"; from: 0.8; to: 1; duration: 500}
+                        PauseAnimation {
+                            duration: 50
+                        }
+                    }
+                },
+                Transition {
+                    from: "start"; to: "stop"
+                }
+            ]
+        }
+
+    }
+
+    Rectangle{
+        id:idRightRectangle
+        anchors.right: parent.right
+        height: parent.height
+        width: parent.width/2
+        color: Qt.rgba(0,0,0,0)
+
+        CustomImage{
+            id: idCustomImageRight
+            anchors.right: idRightRectangle.right
+            anchors.top: idRightRectangle.top
+            anchors.margins: 100
+            imageSize: 100
+        }
+    }
 
 }
