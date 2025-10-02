@@ -29,7 +29,7 @@ Button{
             id:idRectangleButton
             anchors.fill: parent
             anchors.centerIn: parent
-            border.color: idTheme. textColor
+            border.color: buttonIconcolor
             radius: idTheme.cornarRadius
             color: idTheme.pageColor
         }
