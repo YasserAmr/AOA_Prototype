@@ -6,8 +6,6 @@ Button{
 
     property int buttonWidth: Math.max(idButtonText.implicitWidth + idTheme.ySpace , idTheme.minimalButtonWidth)
     property int buttonheight: Math.max(idButtonText.implicitHeight + idTheme.ySpace, idTheme.minimalButtonHeight)
-    // property int buttonWidth: idTheme.minimalButtonWidth+ (idTheme.ySpace * 2
-    // property int buttonheight: idTheme.minimalButtonHeight+ (idTheme.ySpace *2)
     property string buttonIcon: "\u25D0"
     property string buttonText: ""
     property int buttonIconSize: idTheme.buttonFontSize
