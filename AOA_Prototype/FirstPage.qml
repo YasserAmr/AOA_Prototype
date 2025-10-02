@@ -62,7 +62,7 @@ Rectangle{
                         idFavouritePlanet.groupeState = "light"
                         idAgeGroupe.groupeState = "light"
                         idPowerThemeRow.groupeState = "light"
-                        // idStartStop.state = "light"
+                        idStartStop.state = "light"
                         console.log("state = light")
                     }
                     else
@@ -72,7 +72,7 @@ Rectangle{
                         idFavouritePlanet.groupeState= "dark"
                         idAgeGroupe.groupeState= "dark"
                         idPowerThemeRow.groupeState = "dark"
-                        // idStartStop.state = "dark"
+                        idStartStop.state = "dark"
                         console.log("state = dark")
                     }}
                 }
@@ -92,6 +92,28 @@ Rectangle{
                 ListElement { icon: "\uF222"; buttonIconSize: 40; onClick: function() { idAgeGroupe.buttonModel = model1 } }
                 ListElement { icon: "\uF221"; buttonIconSize: 40; onClick: function() { idAgeGroupe.buttonModel = model2 } }
             }
+            state: "stop"
+            states: [
+                State {
+                    name: "start"
+                    PropertyChanges {target: idFavouritePlanet;  opacity: 0 }
+                },
+                State {
+                    name: "stop"
+                    PropertyChanges {target: idFavouritePlanet;  opacity: 1 }
+                }
+            ]
+
+            transitions: [
+                Transition {
+                    from: "stop"; to: "start"
+                    NumberAnimation { properties: "opacity" ; duration: 1500; easing.type: Easing.InOutQuad }
+                },
+                Transition {
+                    from: "start"; to: "stop"
+                    NumberAnimation { properties: "opacity"; duration: 1500; easing.type: Easing.InOutQuad }
+                }
+            ]
         }
         //##################################################################################################################
         // Age group models
@@ -122,6 +144,32 @@ Rectangle{
             lableText: "Age groupe:"
             groupeState: "light"
             buttonModel: model1
+            state: "stop"
+            states: [
+                State {
+                    name: "start"
+                    PropertyChanges {target: idAgeGroupe;  opacity: 0 }
+                    AnchorChanges {target: idStartStop; anchors.top: idPowerThemeRow.bottom }
+                },
+                State {
+                    name: "stop"
+                    PropertyChanges {target: idAgeGroupe;  opacity: 1 }
+                    AnchorChanges {target: idStartStop; anchors.top:idAgeGroupe.bottom}
+                }
+            ]
+
+            transitions: [
+                Transition {
+                    from: "stop"; to: "start"
+                    NumberAnimation { properties: "opacity" ; duration: 1500; easing.type: Easing.InOutQuad }
+                    AnchorAnimation{ duration: 1500; easing.type: Easing.InOutQuad}
+                },
+                Transition {
+                    from: "start"; to: "stop"
+                    NumberAnimation { properties: "opacity"; duration: 1500; easing.type: Easing.InOutQuad }
+                    AnchorAnimation{ duration: 1500; easing.type: Easing.InOutQuad}
+                }
+            ]
         }
         //##################################################################################################################
         // CustomLableButtonsGroup{
@@ -144,50 +192,23 @@ Rectangle{
             property string startText: "Start healing " + "\uF0DA"
             property string stopText: "Stop " + "\uF256"
             buttonText: startText
-            state: "stop"
+            state: "light"
             onClicked: {
-                if(state ==="stop" )
+                if(idAgeGroupe.state ==="stop" )
                 {
-                    state ="start"; idCustomImageLeft.state = "start"; idCustomImageRight.state = "start"
+                    idAgeGroupe.state ="start"; idFavouritePlanet.state ="start"
+                    idCustomImageLeft.state = "start"; idCustomImageRight.state = "start"
+                    buttonText = stopText
                     console.log("state = start ")
                 }
                 else
                 {
-                    state ="stop"; idCustomImageLeft.state = "stop" ;idCustomImageRight.state = "stop"
+                    idAgeGroupe.state ="stop"; idFavouritePlanet.state ="stop"
+                    idCustomImageLeft.state = "stop" ;idCustomImageRight.state = "stop"
+                     buttonText = startText
                     console.log("state = stop ")
                 }
             }
-
-            states: [
-                State {
-                    name: "start"
-                    PropertyChanges {target: idAgeGroupe;  opacity: 0 }
-                    PropertyChanges {target: idFavouritePlanet;  opacity: 0 }
-                    PropertyChanges {target: idStartStop;  buttonText: "Stop "+ "\uF256"  }
-                    AnchorChanges {target: idStartStop; anchors.top: idPowerThemeRow.bottom }
-                },
-                State {
-                    name: "stop"
-                    PropertyChanges {target: idAgeGroupe;  opacity: 1 }
-                    PropertyChanges {target: idFavouritePlanet;  opacity: 1 }
-                    PropertyChanges {target: idStartStop;  buttonText: "Start handling "+ "\uF0DA"  }
-                    AnchorChanges {target: idStartStop; anchors.top:idAgeGroupe.bottom}
-
-                }
-            ]
-
-            transitions: [
-                Transition {
-                    from: "stop"; to: "start"
-                    NumberAnimation { properties: "opacity" ; duration: 1500; easing.type: Easing.InOutQuad }
-                    AnchorAnimation{ duration: 1500; easing.type: Easing.InOutQuad}
-                },
-                Transition {
-                    from: "start"; to: "stop"
-                    NumberAnimation { properties: "opacity"; duration: 1500; easing.type: Easing.InOutQuad }
-                    AnchorAnimation{ duration: 1500; easing.type: Easing.InOutQuad}
-                }
-            ]
         }
         CustomImage{
             id: idCustomImageLeft
