@@ -33,20 +33,6 @@ Rectangle{
         width: parent.width/2
         color: Qt.rgba(0,0,0,0)
         //##################################################################################################################
-        // Column{
-        //     id: idMainColumn
-        //     anchors.fill: parent
-        //     anchors.leftMargin: idTheme.ySpace
-        //     spacing: idTheme.ySpace
-
-        // CustomImage{
-        //     id: idCustomImageLeft
-        //     // anchors.bottom: parent.bottom
-        //      // anchors.top: idStartStop.bottom
-        //     x:-50
-        //     // y: idLeftRectangle.height - 50
-        // }
-        //##################################################################################################################
         CustomLableButtonsGroup{
             id: idPowerThemeRow
             anchors.top: parent.top
@@ -190,7 +176,6 @@ Rectangle{
             Behavior on textOpacity {
                 NumberAnimation { duration: 300; easing.type: Easing.InOutQuad }
             }
-            // Text properties
             property string startText: "Start healing " + "\uF0DA"
             property string stopText: "Stop " + "\uF256"
             buttonText: startText
@@ -233,7 +218,6 @@ Rectangle{
             transitions: [
                 Transition {
                     from: "stop"; to: "start"
-                    // NumberAnimation { properties: "opacity" ; duration: 2000; easing.type: Easing.InOutQuad }
                     AnchorAnimation{ duration: 2000; easing.type: Easing.InOutQuad}
                     SequentialAnimation{
                         loops: Animation.Infinite
