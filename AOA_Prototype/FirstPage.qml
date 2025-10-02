@@ -63,6 +63,7 @@ Rectangle{
                         idAgeGroupe.groupeState = "light"
                         idPowerThemeRow.groupeState = "light"
                         idStartStop.state = "light"
+                        idCustomImageRight.imageColor = idTheme.textColor
                         console.log("state = light")
                     }
                     else
@@ -73,6 +74,7 @@ Rectangle{
                         idAgeGroupe.groupeState= "dark"
                         idPowerThemeRow.groupeState = "dark"
                         idStartStop.state = "dark"
+                        idCustomImageRight.imageColor = idTheme.pageColor
                         console.log("state = dark")
                     }}
                 }
@@ -269,6 +271,7 @@ Rectangle{
             y: 50
             imageIcon: "\uF77C"
             imageSize: 150
+            imageColor: idTheme.textColor
             transformOrigin: Item.BottomLeft
             state: "stop"
             states: [
