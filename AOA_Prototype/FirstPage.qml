@@ -148,11 +148,13 @@ Rectangle{
             onClicked: {
                 if(state ==="stop" )
                 {
-                    state ="start"; idCustomImageLeft.state = "start" ;console.log("state = start ")
+                    state ="start"; idCustomImageLeft.state = "start"; idCustomImageRight.state = "start"
+                    console.log("state = start ")
                 }
                 else
                 {
-                    state ="stop"; idCustomImageLeft.state = "stop" ;console.log("state = stop ")
+                    state ="stop"; idCustomImageLeft.state = "stop" ;idCustomImageRight.state = "stop"
+                    console.log("state = stop ")
                 }
             }
 
@@ -177,13 +179,13 @@ Rectangle{
             transitions: [
                 Transition {
                     from: "stop"; to: "start"
-                    NumberAnimation { properties: "opacity" ; duration: 2000; easing.type: Easing.InOutQuad }
-                    AnchorAnimation{ duration: 2000; easing.type: Easing.InOutQuad}
+                    NumberAnimation { properties: "opacity" ; duration: 1500; easing.type: Easing.InOutQuad }
+                    AnchorAnimation{ duration: 1500; easing.type: Easing.InOutQuad}
                 },
                 Transition {
                     from: "start"; to: "stop"
-                    NumberAnimation { properties: "opacity"; duration: 2000; easing.type: Easing.InOutQuad }
-                    AnchorAnimation{ duration: 2000; easing.type: Easing.InOutQuad}
+                    NumberAnimation { properties: "opacity"; duration: 1500; easing.type: Easing.InOutQuad }
+                    AnchorAnimation{ duration: 1500; easing.type: Easing.InOutQuad}
                 }
             ]
         }
@@ -192,6 +194,7 @@ Rectangle{
             y:parent.height - 2.2*height/3
             x:-50
             z:-1
+            transformOrigin: Item.Center
             state: "stop"
             states: [
                 State {
@@ -241,10 +244,40 @@ Rectangle{
 
         CustomImage{
             id: idCustomImageRight
-            anchors.right: idRightRectangle.right
-            anchors.top: idRightRectangle.top
-            anchors.margins: 100
-            imageSize: 100
+            x: parent.width - 200
+            y: 50
+            imageIcon: "\uF77C"
+            imageSize: 150
+            transformOrigin: Item.BottomLeft
+            state: "stop"
+            states: [
+                State {
+                    name: "start"
+                    PropertyChanges { target: idCustomImageRight; scale: 2 }
+                    PropertyChanges {target: idCustomImageRight; x:parent.width - 500 }
+                    PropertyChanges {target: idCustomImageRight; y:250 }
+                },
+                State {
+                    name: "stop"
+                    PropertyChanges { target: idCustomImageRight; scale: 1 }
+                    PropertyChanges {target: idCustomImageRight; x:parent.width - 200 }
+                    PropertyChanges {target: idCustomImageRight; y:50 }
+                }
+            ]
+            transitions: [
+                Transition {
+                    from: "stop"; to: "start"
+                    NumberAnimation { properties: "scale"; from: 1; to: 2; duration: 1500}
+                    NumberAnimation { properties: "x"; duration: 1500}
+                    NumberAnimation { properties: "y"; duration: 1500}
+                },
+                Transition {
+                    from: "start"; to: "stop"
+                    NumberAnimation { properties: "scale"; from: 2; to: 1; duration: 1500}
+                    NumberAnimation { properties: "x"; duration: 1500}
+                    NumberAnimation { properties: "y"; duration: 1500}
+                }
+            ]
         }
     }
 
