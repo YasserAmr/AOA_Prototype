@@ -12,8 +12,6 @@ Rectangle {
     height: imageSize
     color: Qt.rgba(0,0,0,0)
 
-    // x:xPosition
-    // y:yPosition
     Text {
         anchors.centerIn: parent
         text: imageIcon
