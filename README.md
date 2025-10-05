@@ -57,3 +57,29 @@ ChatGPT suggested some parts of the QML animation code
 v1.1 – Added QML Animations
 
 **Total Estimated Time:** ~6–10 hours  
+
+## Changes in v1.2– Added QML Animations
+- Added **Start/Stop button** (`CustomButtonStartStop`) with animated text and background.
+- Animated **age group and favourite planet columns** with `opacity` and `AnchorAnimation`.
+- Custom images (`CustomImageLeft`/`Right`) now support dynamic icons and colors.
+- Refactored button components: removed `CustomButton2` and standardized to `CustomButtonStartStop`.
+- Added color animations and smooth theme transitions.
+- Label now implemented as a **separate component** (`CustomLable.qml`).
+
+## Planned Changes and Time Estimation
+
+### 1. Add QML Text Animations
+- **Current:** Button text changes instantly on state change.
+- **Proposed:** Animate text appearance using `NumberAnimation` or `Behavior` (fade/slide).
+
+  ### 2. Add QML Test 
+
+
+ ### 3. Add C++ back end 
+
+
+- **Time Estimate:** 3–4 hours
+<img width="1800" height="1345" alt="1" src="https://github.com/user-attachments/assets/7a25151b-6a67-4bbf-9099-d7fc18275c33" />
+<img width="1789" height="1351" alt="2" src="https://github.com/user-attachments/assets/8b456667-ba8e-4557-921f-011e978a10ec" />
+<img width="1793" height="1354" alt="3" src="https://github.com/user-attachments/assets/b2108d55-b4ce-475b-b850-1d9dadbe7a31" />
+
