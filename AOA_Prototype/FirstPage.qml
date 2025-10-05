@@ -108,18 +108,18 @@ Rectangle{
         ListModel
         {
             id: model1
-            ListElement { icon: "\uF77C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF77D"; idCustomImageLeft.imageColor = idTheme.accentColor }}
-            ListElement { icon: "\uF1AE"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF1E3"; idCustomImageLeft.imageColor ="#90caf9" }}
-            ListElement { icon: "\uF183"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF604"; idCustomImageLeft.imageColor ="#979dac" }}
-            ListElement { icon: "\uE53C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF06C"; idCustomImageLeft.imageColor ="#ffd500" }}
+            ListElement { icon: "\uF77C"; buttonIconSize: 40; onClick: function() { idCustomImageRight.imageIcon = "\uF77C"; idCustomImageLeft.imageIcon = "\uF77D"; idCustomImageLeft.imageColor = idTheme.accentColor }}
+            ListElement { icon: "\uF1AE"; buttonIconSize: 40; onClick: function() { idCustomImageRight.imageIcon = "\uF1AE"; idCustomImageLeft.imageIcon = "\uF1E3"; idCustomImageLeft.imageColor ="#90caf9" }}
+            ListElement { icon: "\uF183"; buttonIconSize: 40; onClick: function() { idCustomImageRight.imageIcon = "\uF183";  idCustomImageLeft.imageIcon = "\uF604"; idCustomImageLeft.imageColor ="#979dac" }}
+            ListElement { icon: "\uE53C"; buttonIconSize: 40; onClick: function() { idCustomImageRight.imageIcon = "\uE53C";  idCustomImageLeft.imageIcon = "\uF06C"; idCustomImageLeft.imageColor ="#ffd500" }}
         }
         ListModel
         {
             id: model2
-            ListElement { icon: "\uF77C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF77D"; idCustomImageLeft.imageColor =idTheme.accentColor }}
-            ListElement { icon: "\uE59C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF1E3"; idCustomImageLeft.imageColor ="#90caf9" }}
-            ListElement { icon: "\uF182"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF604"; idCustomImageLeft.imageColor ="#979dac" }}
-            ListElement { icon: "\uE53C"; buttonIconSize: 40; onClick: function() { idCustomImageLeft.imageIcon = "\uF06C"; idCustomImageLeft.imageColor ="#ffd500" }}
+            ListElement { icon: "\uF77C"; buttonIconSize: 40; onClick: function() { idCustomImageRight.imageIcon = "\uF77C"; idCustomImageLeft.imageIcon = "\uF77D"; idCustomImageLeft.imageColor =idTheme.accentColor }}
+            ListElement { icon: "\uE59C"; buttonIconSize: 40; onClick: function() { idCustomImageRight.imageIcon = "\uE59C"; idCustomImageLeft.imageIcon = "\uF1E3"; idCustomImageLeft.imageColor ="#90caf9" }}
+            ListElement { icon: "\uF182"; buttonIconSize: 40; onClick: function() { idCustomImageRight.imageIcon = "\uF182"; idCustomImageLeft.imageIcon = "\uF604"; idCustomImageLeft.imageColor ="#979dac" }}
+            ListElement { icon: "\uE53C"; buttonIconSize: 40; onClick: function() { idCustomImageRight.imageIcon = "\uE53C"; idCustomImageLeft.imageIcon = "\uF06C"; idCustomImageLeft.imageColor ="#ffd500" }}
         }
         //##################################################################################################################
         CustomLableButtonsGroup{
