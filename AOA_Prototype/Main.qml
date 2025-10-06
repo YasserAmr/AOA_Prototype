@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import "./components"
+import AppBackend
 ApplicationWindow {
     width: 1028
     height: 768
@@ -17,6 +18,10 @@ ApplicationWindow {
 
     Theme{
         id: idTheme
+    }
+
+    Backend {
+        id: backend
     }
 
     StackView
