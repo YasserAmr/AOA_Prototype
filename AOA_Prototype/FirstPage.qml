@@ -50,6 +50,7 @@ Rectangle{
                         idStartStop.state = "light"
                         idCustomImageRight.imageColor = idTheme.textColor
                         console.log("state = light")
+                        backend.setTheme( "light")
                     }
                     else
                     {
@@ -61,6 +62,7 @@ Rectangle{
                         idStartStop.state = "dark"
                         idCustomImageRight.imageColor = idTheme.pageColor
                         console.log("state = dark")
+                        backend.setTheme( "dark")
                     }}
                 }
             }
