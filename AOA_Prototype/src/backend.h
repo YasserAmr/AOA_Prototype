@@ -12,7 +12,8 @@ public:
     explicit BackEnd(QObject *parent = nullptr);
 
     QString theme() const;
-    void setTheme(const QString &newTheme);
+
+    Q_INVOKABLE void setTheme(const QString &newTheme);
 
 signals:
     void themeChanged();
