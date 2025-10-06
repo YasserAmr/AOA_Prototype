@@ -5,6 +5,12 @@ import AppBackend
 ApplicationWindow {
     width: 1028
     height: 768
+
+    minimumWidth: 1028
+    maximumWidth: 1028
+    minimumHeight: 768
+    maximumHeight: 768
+
     visible: true
     title: qsTr("Hello World")
 
