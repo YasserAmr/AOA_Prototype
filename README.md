@@ -53,6 +53,10 @@ ChatGPT suggested some parts of the QML animation code
 ### 6. **Label should be a separate component in a separate file**
 - **Current:** It's implemented in the FirstPage.qml file.
 - **Proposed:** Create CustomLable.qml file.
+
+### 7. **Commits are too large**
+- **Current:** Changes are grouped into large commits.
+- **Proposed:** Split changes into smaller, focused commits to make reviews easier and history clearer.
  
 v1.1 – Added QML Animations
 
@@ -72,10 +76,10 @@ v1.1 – Added QML Animations
 - **Current:** Button text changes instantly on state change.
 - **Proposed:** Animate text appearance using `NumberAnimation` or `Behavior` (fade/slide).
 
-  ### 2. Add QML Test 
+### 2. Add QML Test 
 
 
- ### 3. Add C++ back end 
+### 3. Add C++ back end 
 
 
 - **Time Estimate:** 3–4 hours
