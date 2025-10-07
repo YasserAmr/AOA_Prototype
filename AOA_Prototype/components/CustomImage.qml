@@ -18,9 +18,9 @@ Rectangle {
 
     Text {
         anchors.centerIn: parent
-        text: imageIcon
+        text: idCustomImage.imageIcon
         font.family: idTheme.buttonFontName
-        font.pixelSize: imageSize
-        color: imageColor
+        font.pixelSize: idCustomImage.imageSize
+        color: idCustomImage.imageColor
     }
 }
