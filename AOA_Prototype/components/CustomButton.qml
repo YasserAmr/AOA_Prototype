@@ -56,26 +56,22 @@ Button{
         State {
             name: "dark"
             PropertyChanges {
-                target: idRectangleButton
-                color: idTheme.textColor
+                idRectangleButton.color: idTheme.textColor
             }
 
             PropertyChanges {
-                target: idButton
-                buttonIconcolor: idTheme.pageColor
+                idButton.buttonIconcolor: idTheme.pageColor
             }
         },
 
         State {
             name: "light"
             PropertyChanges {
-                target: idRectangleButton
-                color: idTheme.pageColor
+                idRectangleButton.color: idTheme.pageColor
             }
 
             PropertyChanges {
-                target: idButtonText
-                color: idTheme.textColor
+                idButtonText.color: idTheme.textColor
             }
         }
     ]
