@@ -3,6 +3,10 @@ import QtQuick.Controls
 import "./components"
 
 Rectangle{
+    Theme{
+        id: idTheme
+    }
+
     id: idMainRectangle
     anchors.fill: parent
     color: idTheme.pageColor
@@ -11,16 +15,14 @@ Rectangle{
         State {
             name: "dark"
             PropertyChanges {
-                target: idMainRectangle
-                color: idTheme.textColor
+                idMainRectangle.color: idTheme.textColor
             }
         },
 
         State {
             name: "light"
             PropertyChanges {
-                target: idMainRectangle
-                color: idTheme.pageColor
+                idMainRectangle.color: idTheme.pageColor
             }
         }
     ]
@@ -85,11 +87,11 @@ Rectangle{
             states: [
                 State {
                     name: "start"
-                    PropertyChanges {target: idFavouritePlanet;  opacity: 0 }
+                    PropertyChanges {idFavouritePlanet.opacity: 0 }
                 },
                 State {
                     name: "stop"
-                    PropertyChanges {target: idFavouritePlanet;  opacity: 1 }
+                    PropertyChanges {idFavouritePlanet.opacity: 1 }
                 }
             ]
 
@@ -145,12 +147,12 @@ Rectangle{
             states: [
                 State {
                     name: "start"
-                    PropertyChanges {target: idAgeGroupe;  opacity: 0 }
+                    PropertyChanges {idAgeGroupe.opacity: 0 }
                     AnchorChanges {target: idStartStop; anchors.top: idPowerThemeRow.bottom }
                 },
                 State {
                     name: "stop"
-                    PropertyChanges {target: idAgeGroupe;  opacity: 1 }
+                    PropertyChanges {idAgeGroupe.opacity: 1 }
                     AnchorChanges {target: idStartStop; anchors.top:idAgeGroupe.bottom}
                 }
             ]
@@ -217,11 +219,11 @@ Rectangle{
             states: [
                 State {
                     name: "start"
-                    PropertyChanges { target: idCustomImageLeft; scale: 1 }
+                    PropertyChanges {idCustomImageLeft.scale: 1 }
                 },
                 State {
                     name: "stop"
-                    PropertyChanges { target: idCustomImageLeft; scale: 1 }
+                    PropertyChanges {idCustomImageLeft.scale: 1 }
 
                 }
             ]
