@@ -1,9 +1,13 @@
 import QtQuick 2.15
 import QtQuick.Controls
 import QtQuick.Effects
+import "../"
+
 Button{
     id: idButton
-
+    Theme{
+        id: idTheme
+    }
     property int buttonWidth: idButtonText.implicitWidth + (idTheme.ySpace * 2)
     property int buttonheight: idButtonText.implicitHeight + (idTheme.ySpace *2)
     property string buttonText: ""

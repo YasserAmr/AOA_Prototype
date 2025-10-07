@@ -1,7 +1,12 @@
 import QtQuick 2.15
 import QtQuick.Controls
+import "../"
+
 Item {
     id: idAlableTextItem
+    Theme{
+        id: idTheme
+    }
     property alias text: idAlableText.text
     property string themeState: "light"
     implicitWidth: idAlableText.implicitWidth

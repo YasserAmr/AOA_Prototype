@@ -1,9 +1,13 @@
 import QtQuick 2.15
 import QtQuick.Controls
 import QtQuick.Effects
+import "../"
+
 Button{
     id: idButton
-
+    Theme{
+        id: idTheme
+    }
     property int buttonWidth: Math.max(idButtonText.implicitWidth + idTheme.ySpace , idTheme.minimalButtonWidth)
     property int buttonheight: Math.max(idButtonText.implicitHeight + idTheme.ySpace, idTheme.minimalButtonHeight)
     property string buttonIcon: "\u25D0"

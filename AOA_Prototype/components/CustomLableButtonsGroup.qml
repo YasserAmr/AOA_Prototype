@@ -1,9 +1,13 @@
 import QtQuick 2.15
 import QtQuick.Controls
 import QtQuick.Layouts
+import "../"
 
 Item {
     id:idRoot
+    Theme{
+        id: idTheme
+    }
     property var buttonModel: []
     property alias lableText: idCustomLable.text
     property string textIcon: "\u25D0"

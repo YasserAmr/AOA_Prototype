@@ -1,7 +1,11 @@
 import QtQuick 2.15
+import "../"
 
 Rectangle {
     id:idCustomImage
+    Theme{
+        id: idTheme
+    }
     property string imageIcon: "\uF77D"
     property int  xPosition: -50
     property int  yPosition: 20
