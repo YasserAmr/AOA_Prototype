@@ -1,5 +1,4 @@
 import QtQuick 2.15
-import QtQuick.Controls
 import "../"
 
 Item {
@@ -16,7 +15,7 @@ Item {
         text: text
         font.family: idTheme.lableFontName
         font.pixelSize: idTheme.lableFontSize
-        state: themeState
-        color: themeState === "dark" ? idTheme.pageColor : idTheme.textColor
+        state: idAlableTextItem.themeState
+        color: idAlableTextItem.themeState === "dark" ? idTheme.pageColor : idTheme.textColor
     }
 }
