@@ -26,14 +26,14 @@ Button{
             radius: idTheme.cornarRadius
             blur: 0
             spread: 0
-            color: buttonIconcolor
+            color: idButton.buttonIconcolor
         }
 
         Rectangle {
             id:idRectangleButton
             anchors.fill: parent
             anchors.centerIn: parent
-            border.color: buttonIconcolor
+            border.color: idButton.buttonIconcolor
             radius: idTheme.cornarRadius
             color: idTheme.pageColor
         }
@@ -43,11 +43,11 @@ Button{
         id: idButtonText
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        text: buttonText
-        opacity: textOpacity
+        text: idButton.buttonText
+        opacity: idButton.textOpacity
         font.family: idTheme.buttonFontName
-        font.pixelSize: buttonIconSize
-        color: buttonIconcolor
+        font.pixelSize: idButton.buttonIconSize
+        color: idButton.buttonIconcolor
     }
 
     states: [
