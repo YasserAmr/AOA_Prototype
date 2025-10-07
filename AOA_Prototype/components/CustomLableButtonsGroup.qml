@@ -1,5 +1,5 @@
+pragma ComponentBehavior: Bound
 import QtQuick 2.15
-import QtQuick.Controls
 import QtQuick.Layouts
 import "../"
 
@@ -27,9 +27,9 @@ Item {
         CustomLable{
             id : idCustomLable
             Layout.fillWidth: true
-            text: lableText
-            opacity: groupeOpicity
-            themeState: groupeState
+            text: idRoot.lableText
+            opacity: idRoot.groupeOpicity
+            themeState: idRoot.groupeState
         }
 
         Row {
@@ -39,9 +39,10 @@ Item {
             Repeater {
                 model: idRoot.buttonModel
                 delegate: CustomButton {
+                    required property var model
                     buttonIcon: model.icon
-                    opacity: groupeOpicity
-                    state: groupeState
+                    opacity: idRoot.groupeOpicity
+                    state: idRoot.groupeState
                     buttonText:  model.text ? model.text : ""
                     buttonIconSize : model.buttonIconSize ? model.buttonIconSize : idTheme.buttonFontSize
                     onClicked: {
