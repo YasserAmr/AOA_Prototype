@@ -19,15 +19,16 @@ Button{
     height: buttonheight
 
     background: Item {
-        id: name
-        RectangularShadow{
+        id: backgroundRectangleButton
+        MultiEffect  {
             anchors.fill: idRectangleButton
-            offset.x: 1
-            offset.y: 4
-            radius: idTheme.cornarRadius
-            blur: 0
-            spread: 0
-            color: idButton.buttonIconcolor
+            source: idRectangleButton
+            shadowEnabled: true
+            shadowBlur: 0
+            shadowHorizontalOffset : 1
+            shadowVerticalOffset : 4
+            shadowColor: idButton.buttonIconcolor
+            shadowOpacity: 1
         }
 
         Rectangle {
