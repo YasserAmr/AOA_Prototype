@@ -97,9 +97,20 @@ set_target_properties(qml_tests PROPERTIES
 )
 
 # Copy QML folders to build dir
-file(COPY ${CMAKE_SOURCE_DIR}/qmlTests DESTINATION ${CMAKE_BINARY_DIR})
+#[[file(COPY ${CMAKE_SOURCE_DIR}/qmlTests DESTINATION ${CMAKE_BINARY_DIR})
 file(COPY ${CMAKE_SOURCE_DIR}/components DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY ${CMAKE_SOURCE_DIR}/theme DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY ${CMAKE_SOURCE_DIR}/theme DESTINATION ${CMAKE_BINARY_DIR})]]
+
+add_custom_target(copy_qml ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/components
+        ${CMAKE_BINARY_DIR}/components
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/theme
+        ${CMAKE_BINARY_DIR}/theme
+)
+add_dependencies(appAOA_Prototype copy_qml)
+
 
 enable_testing()
 add_test(NAME QMLTests COMMAND qml_tests)
