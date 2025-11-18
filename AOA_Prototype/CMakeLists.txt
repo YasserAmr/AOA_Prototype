@@ -20,9 +20,8 @@ qt_add_qml_module(appAOA_Prototype
     VERSION 1.0
     QML_FILES
         Main.qml
-        Theme.qml
-        RESOURCES font/Free-Solid-900.otf
         FirstPage.qml
+        theme/Theme.qml
         components/CustomButton.qml
         components/CustomButtonStartStop.qml
         components/CustomImage.qml
@@ -30,9 +29,16 @@ qt_add_qml_module(appAOA_Prototype
         components/CustomLableButtonsGroup.qml
         qmlTests/tst_custoButton.qml
     SOURCES
-        src/backend.h src/backend.cpp
-        QML_FILES
+        src/backend.h
+        src/backend.cpp
+    RESOURCES
+        components/qmldir
+        font/Free-Solid-900.otf
+        theme/qmldir
 )
+
+list(APPEND QML_DIRS ${CMAKE_SOURCE_DIR})
+set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "Qt Creator: extra qml import paths")
 
 # Include directories
 target_include_directories(appAOA_Prototype PRIVATE
@@ -93,7 +99,7 @@ set_target_properties(qml_tests PROPERTIES
 # Copy QML folders to build dir
 file(COPY ${CMAKE_SOURCE_DIR}/qmlTests DESTINATION ${CMAKE_BINARY_DIR})
 file(COPY ${CMAKE_SOURCE_DIR}/components DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY ${CMAKE_SOURCE_DIR}/Theme.qml DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY ${CMAKE_SOURCE_DIR}/theme DESTINATION ${CMAKE_BINARY_DIR})
 
 enable_testing()
 add_test(NAME QMLTests COMMAND qml_tests)
