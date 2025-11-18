@@ -3,7 +3,9 @@
 
 BackEnd::BackEnd(QObject *parent)
     : QObject{parent}
-{}
+{
+    qDebug() << "Backend type registered";
+}
 
 QString BackEnd::theme() const
 {
