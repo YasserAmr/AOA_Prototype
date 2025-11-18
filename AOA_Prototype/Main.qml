@@ -1,7 +1,10 @@
 import QtQuick
 import QtQuick.Controls
-import "./components"
-import AppBackend
+//import "./components"
+import AppBackend 1.0
+import theme
+
+
 ApplicationWindow {
     width: 1028
     height: 768
@@ -26,7 +29,7 @@ ApplicationWindow {
         id: idTheme
     }
 
-    Backend {
+    Backend{
         id: backend
     }
 
