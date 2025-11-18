@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
+#include <QQmlContext>
 #include "backend.h"
 
 int main(int argc, char *argv[])
@@ -9,10 +10,13 @@ int main(int argc, char *argv[])
 
     QQuickStyle::setStyle("Basic");
 
-    qmlRegisterType<BackEnd>("AppBackend", 1, 0, "Backend");
+    BackEnd backend;
+
+    // qmlRegisterType<BackEnd>("AppBackend", 1, 0, "Backend");
 
     QQmlApplicationEngine engine;
-    engine.addImportPath("qrc:/qt/qml/AOA_Prototype/AOA_Prototype/");
+    engine.rootContext()->setContextProperty("backend", &backend);
+    engine.addImportPath("qrc:/qt/qml/AOA_Prototype/");
 
     QObject::connect(
         &engine,
@@ -20,7 +24,9 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
-    engine.loadFromModule("AOA_Prototype", "Main");
+    // engine.loadFromModule("AOA_Prototype", "Main");
+    engine.load(QUrl(QStringLiteral("qrc:/qt/qml/AOA_Prototype/Main.qml")));
+
 
     return app.exec();
 }
