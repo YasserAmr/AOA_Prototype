@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import theme
-import "../"
+// import "../"
 
 Rectangle {
     id:idCustomImage

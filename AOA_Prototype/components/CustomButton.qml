@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls
 import QtQuick.Effects
 import theme
-import "../"
+// import "../"
 
 Button{
     id: idButton

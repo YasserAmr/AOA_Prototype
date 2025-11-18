@@ -2,7 +2,8 @@ pragma ComponentBehavior: Bound
 import QtQuick 2.15
 import QtQuick.Layouts
 import theme
-import "../"
+import components
+// import "../"
 
 Item {
     id:idRoot
