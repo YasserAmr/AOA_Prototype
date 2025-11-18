@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 //import "./components"
-import AppBackend 1.0
+// import AppBackend 1.0
 import theme
 
 
@@ -29,9 +29,9 @@ ApplicationWindow {
         id: idTheme
     }
 
-    Backend{
-        id: backend
-    }
+    // Backend{
+    //     id: backend
+    // }
 
     StackView
     {
