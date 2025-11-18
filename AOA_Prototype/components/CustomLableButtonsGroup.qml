@@ -1,6 +1,7 @@
 pragma ComponentBehavior: Bound
 import QtQuick 2.15
 import QtQuick.Layouts
+import theme
 import "../"
 
 Item {
@@ -45,12 +46,14 @@ Item {
                     state: idRoot.groupeState
                     buttonText:  model.text ? model.text : ""
                     buttonIconSize : model.buttonIconSize ? model.buttonIconSize : idTheme.buttonFontSize
+                    // onClicked: {
+                    //     idRoot.buttonModel = model.target
+                    // }
                     onClicked: {
                         // Change another model if targetModel is defined
                         if (model.targetModel) {
                             idRoot.buttonModel = model.targetModel
                         }
-                        // Call onClick if defined
                         if (model.onClick) model.onClick()
                     }
                 }
