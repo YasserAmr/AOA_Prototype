@@ -1,0 +1,6 @@
+module components
+CustomButton 1.0 CustomButton.qml
+CustomButtonStartStop 1.0 CustomButtonStartStop.qml
+CustomImage 1.0 CustomImage.qml
+CustomLable 1.0 CustomLable.qml
+CustomLableButtonsGroup 1.0 CustomLableButtonsGroup.qml
