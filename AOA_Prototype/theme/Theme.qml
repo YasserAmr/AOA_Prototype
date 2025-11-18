@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Controls
 
 QtObject{
 
@@ -19,5 +18,4 @@ QtObject{
     property color pageColor: "#FFFFFF"
     property color textColor: "#696969"
     property color accentColor: "#FFC0CB"
-
 }
